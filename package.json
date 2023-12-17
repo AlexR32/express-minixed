@@ -1,7 +1,7 @@
 {
   "name": "express-minixed",
-  "version": "1.0.0",
-  "description": "Minimal and nice-looking directory indexer but now ported to JS",
+  "version": "1.0.1",
+  "description": "Minimal and nice-looking directory indexer",
   "main": "lib/minixed.js",
   "repository": {
     "type": "git",
@@ -10,10 +10,7 @@
   "keywords": [
     "indexer",
     "directory-lister",
-    "express",
-    "javascript",
-    "nodejs",
-    "node"
+    "express"
   ],
   "author": "tngrn",
   "license": "MIT",
