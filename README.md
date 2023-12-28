@@ -1,12 +1,12 @@
 # express-minixed
-Minimal and nice-looking directory indexer but now ported to JavaScript (Express Middleware)  
+Minimal and nice-looking directory indexer but now ported to Express Middleware  
 Original idea was taken from [lorenzos@Minixed](https://github.com/lorenzos/Minixed)
 
 ## What changed?
 - Ported to Express Middleware
 - EJS template engine
-- New dark mode (colors inverted)
-- New SVG icons
+- Auto dark mode (colors inverted)
+- Converted PNG icons to SVG
 
 ## Installation
 This is Express Middleware so make sure to [install express](https://github.com/expressjs/express?tab=readme-ov-file#installation) first  
@@ -41,9 +41,13 @@ Once Minixed has successfully initialized, you can use it.
 ```javascript
 ...
 
-const appPath = 'whatever/path/you/want';
-const actualPath = 'actual/path/where/files/stored/in/public/path';
-app.use(appPath, minixed.list(actualPath, {
+// Actual path should be look like staticPath
+// But it can be different
+
+const staticPath = 'public/path';
+const actualPath = 'public/path';
+app.use(staticPath, minixed.list(actualPath, {
+  // minixed options
   fileParse: 'name',
   showDirectories: false,
   showIcons: false
@@ -52,22 +56,24 @@ app.use(appPath, minixed.list(actualPath, {
 
 ### Options
 #### title
-Sets title of Minixed and can display current path  
+Title text of Minixed that can display current path  
+Warning: If `breadcrumbs` option set to true title will still have path  
 Default: `Index of {{path}}`
 #### subtitle
-Sets subtitle that can display number of files in directory and its total size  
+Subtitle text that can display number of files in directory and its total size  
 Default: `{{files}} object(s) in this directory, {{size}} total`
 #### emptySubtitle
-Sets subtitle text when there is no files in directory can display files and size like subtitle option  
+Subtitle text when there is no files in directory  
+Can display files and size like `subtitle` option  
 Default: `No objects in this directory`
 #### ignore
 Array of file names to ignore  
-Sensetive to fileParse option  
+Sensitive to `fileParse` option  
 Default: `[] (Empty Array)`
 #### fileParse
 Displays what the file name will look like  
-Base will display file name and its extension    
-Name will display only file name  
+`base` will display file name and its extension    
+`name` will display only file name  
 For more info see [path docs](https://nodejs.org/api/path.html#pathparsepath)  
 Default: `base`  
 Options: `base, name`
@@ -75,13 +81,13 @@ Options: `base, name`
 Shows parent directory (`.. /`) if you are in sub directory  
 Default: `true`
 #### breadcrumbs
-Divides the path into subdirectories that you can navigate through  
+Divides the path in title text into subdirectories that you can navigate through  
 Default: `false`
 #### showDirectories
-Shows directories  
+Shows directories in file list  
 Default: `true`
 #### showHiddenFiles
-Shows hidden files  
+Shows hidden files in file list  
 Default: `false`
 #### showFooter
 Shows credit footer  
@@ -91,7 +97,7 @@ Default: `true`
 Shows icons before the file name  
 Default: `true`
 #### sizeDecimals
-displays how many decimals the file size value should show  
+Displays how many decimals the file size value should show  
 Default: `2`
 #### alignment
 How the interface should be aligned  
@@ -99,7 +105,7 @@ Default: `center`
 Options: `left, center, right`
 #### dateFormat
 Format of file date  
-For more info about format see [moment docs](https://momentjs.com/docs/#/displaying/format/)
+For more info about format see [moment docs](https://momentjs.com/docs/#/displaying/format/)  
 Default: `DD/MM/YY HH:mm:ss`
 #### robots
 HTML meta to disable search robots  
