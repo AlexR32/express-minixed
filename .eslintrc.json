@@ -1,0 +1,68 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "shared-node-browser": true,
+    "es2024": true
+  },
+  "extends": ["airbnb-base"],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+
+      "plugins": [
+        "@babel/plugin-syntax-import-assertions"
+      ]
+    }
+  },
+  "rules": {
+    "no-console": "off",
+    "comma-dangle": ["error", "only-multiline"],
+    "no-restricted-syntax": "off",
+    //"prefer-rest-params": "off",
+    "no-extend-native": "off",
+    "import/no-dynamic-require": "off",
+    "global-require": "off",
+    "consistent-return": "off",
+    "linebreak-style": "off",
+    "object-curly-newline": ["error", {
+      //"multiline": true
+      "consistent": true
+    }],
+    "no-eval": "off",
+    "no-param-reassign": "off",
+    "max-len": ["error", {
+      "code": 120,
+      "tabWidth": 2,
+      "ignoreComments": true,
+      "ignoreTrailingComments": true,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true
+    }],
+    "arrow-body-style": ["error", "as-needed"],
+    "object-shorthand": "off",
+    "no-plusplus": "off",
+    "import/no-unresolved": "off",
+    "spaced-comment": "off",
+    "no-bitwise": "off",
+    "func-names": ["error", "never"],
+    "prefer-arrow-callback": ["error", {
+      "allowNamedFunctions": false,
+      "allowUnboundThis": true
+    }],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "import/no-extraneous-dependencies": "off",
+    "no-else-return": "off"
+  }
+}
